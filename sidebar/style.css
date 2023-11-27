@@ -1,0 +1,360 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap");
+
+:root {
+  --color-barra-lateral: rgb(255, 255, 255);
+
+  --color-texto: rgb(0, 0, 0);
+  --color-texto-menu: rgb(134, 136, 144);
+
+  --color-menu-hover: rgb(238, 238, 238);
+  --color-menu-hover-texto: rgb(0, 0, 0);
+
+  --color-botao: rgb(0, 0, 0);
+  --color-botao-texto: rgb(255, 255, 255);
+
+  --color-linha: rgb(180, 180, 180);
+
+  --color-switch-base: rgb(201, 202, 206);
+  --color-switch-circulo: rgb(241, 241, 241);
+
+  --color-scroll: rgb(192, 192, 192);
+  --color-scroll-hover: rgb(134, 134, 134);
+}
+
+.dark-mode {
+  --color-barra-lateral: rgb(44, 45, 49);
+
+  --color-texto: rgb(255, 255, 255);
+  --color-texto-menu: rgb(110, 110, 117);
+
+  --color-menu-hover: rgb(0, 0, 0);
+  --color-menu-hover-texto: rgb(238, 238, 238);
+
+  --color-botao: rgb(255, 255, 255);
+  --color-botao-texto: rgb(0, 0, 0);
+
+  --color-linha: rgb(90, 90, 90);
+
+  --color-switch-base: rgb(39, 205, 64);
+  --color-switch-circulo: rgb(255, 255, 255);
+
+  --color-scroll: rgb(68, 69, 74);
+  --color-scroll-hover: rgb(85, 85, 85);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
+}
+
+body {
+  /* border: 5px solid red; */
+  height: 100vh;
+  width: 100%;
+  background-color: darkcyan;
+}
+
+.menu {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-botao);
+  color: var(--color-botao-texto);
+  right: 15px;
+  top: 15px;
+  z-index: 100;
+}
+
+.barra-lateral {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 250px;
+  height: 100%;
+  padding: 20px 15px;
+  background-color: var(--color-barra-lateral);
+  transition: width 0.5s ease, background-color 0.3s ease, left 0.5s ease;
+  overflow: hidden;
+  z-index: 50;
+}
+
+/* .barra-lateral > div:nth-child(1),
+.barra-lateral > nav:nth-child(2),
+.barra-lateral > div:nth-child(3) {
+  border: 2px solid red;
+} */
+
+.min-barra-lateral {
+  width: 80px;
+}
+
+.barra-lateral span {
+  width: 100px;
+  white-space: nowrap;
+  font-size: 18px;
+  text-align: left;
+  opacity: 1;
+  transition: opacity 0.5s ease, width 0.5s ease;
+}
+
+.barra-lateral span.oculto {
+  opacity: 0;
+  width: 0;
+}
+
+/* ----- Nome da Pagina ----- */
+.barra-lateral .nome-pagina {
+  width: 100%;
+  height: 45px;
+  margin-bottom: 40px;
+  color: var(--color-texto);
+  display: flex;
+  align-items: center;
+}
+
+.barra-lateral .nome-pagina ion-icon {
+  min-width: 50px;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.barra-lateral .nome-pagina span {
+  margin-left: 5px;
+  font-size: 25px;
+}
+
+/* ----- Botao ----- */
+.barra-lateral .botao {
+  width: 100%;
+  height: 45px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--color-botao);
+  color: var(--color-botao-texto);
+}
+
+.barra-lateral .botao ion-icon {
+  min-width: 50px;
+  font-size: 25px;
+}
+
+/* ----- Navegacao ----- */
+
+.barra-lateral .navegacao {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.barra-lateral .navegacao::-webkit-scrollbar {
+  width: 5px;
+}
+.barra-lateral .navegacao::-webkit-scrollbar-thumb {
+  background-color: var(--color-scroll);
+  border-radius: 5px;
+}
+.barra-lateral .navegacao::-webkit-scrollbar-thumb {
+  background-color: var(--color-scroll-hover);
+}
+
+.barra-lateral .navegacao li {
+  list-style: none;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.barra-lateral .navegacao a {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 10px;
+  color: var(--color-texto-menu);
+}
+
+.barra-lateral .navegacao a:hover {
+  background-color: var(--color-menu-hover);
+  color: var(--color-menu-hover-texto);
+}
+
+.barra-lateral .navegacao ion-icon {
+  min-width: 50px;
+  font-size: 20px;
+}
+
+/* ----- Linha ----- */
+
+.barra-lateral .linha {
+  width: 100%;
+  height: 1px;
+  margin-top: 15px;
+  background-color: var(--color-linha);
+}
+
+/* ----- ----- */
+/* ----- Modo Escuro ----- */
+
+.barra-lateral .modo-escuro {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.barra-lateral .modo-escuro .info {
+  width: 150px;
+  height: 45px;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  color: var(--color-texto-menu);
+}
+
+.barra-lateral .modo-escuro ion-icon {
+  width: 50px;
+  font-size: 20px;
+}
+
+/* ----- Switch ----- */
+
+.barra-lateral .modo-escuro .switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  height: 45px;
+  cursor: pointer;
+}
+
+.barra-lateral .modo-escuro .base {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 35px;
+  height: 20px;
+  background-color: var(--color-switch-base);
+  border-radius: 50px;
+}
+
+.barra-lateral .modo-escuro .circulo {
+  position: absolute;
+  width: 18px;
+  height: 90%;
+  background-color: var(--color-switch-circulo);
+  border-radius: 50px;
+  left: 2px;
+  transition: left 0.5s ease;
+}
+
+.barra-lateral .modo-escuro .circulo.prendido {
+  left: 15px;
+}
+
+/* ----- Usuario ----- */
+
+.barra-lateral .usuario {
+  width: 100%;
+  display: flex;
+}
+
+.barra-lateral .usuario img {
+  width: 50px;
+  min-width: 50px;
+  border-radius: 10px;
+  /* border: 1px solid gray; */
+  /* box-shadow: 1px 1px var(--color-texto-menu); */
+}
+
+.barra-lateral .usuario .info-usuario {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--color-texto);
+  overflow: hidden;
+}
+
+.barra-lateral .usuario .nome-email {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+}
+
+.barra-lateral .usuario .nome {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.barra-lateral .usuario .email {
+  font-size: 13px;
+}
+
+.barra-lateral .usuario ion-incon {
+  font-size: 20px;
+}
+
+/* ----- Main ------ */
+
+#inbox {
+  background-color: var(--color-menu-hover);
+  color: var(--color-menu-hover-texto);
+}
+
+main {
+  margin-left: 250px;
+  padding: 20px;
+  transition: margin-left 0.5s ease;
+}
+
+main.min-main {
+  margin-left: 80px;
+}
+
+/* ----- Responsive ------ */
+
+@media (max-height: 660px) {
+  .barra-lateral .nome-pagina {
+    margin-bottom: 5px;
+  }
+  .barra-lateral .modo-escuro {
+    margin-bottom: 3px;
+  }
+}
+
+@media (max-width: 600px) {
+  .barra-lateral {
+    position: fixed;
+    left: -250px;
+  }
+  .max-barra-lateral {
+    left: 0;
+  }
+  .menu {
+    display: flex;
+  }
+  .menu ion-icon:nth-child(2) {
+    display: none;
+  }
+  main {
+    margin-left: 0;
+  }
+  main.min-main {
+    margin-left: 0;
+  }
+}
